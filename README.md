@@ -55,19 +55,19 @@ If something went wrong (like the file doesn’t exist or there’s an issue wit
     import json
     
     def send_trashcan_request(trashcan_path):
-        url = "http://localhost:8080/empty-trashcan"  # Replace with your server's URL if needed
+        url = "http://localhost:8080/empty-trashcan"  #replace with your server's URL
     
-        # Prepare the payload
+        #prepare the payload
         payload = {
             "trashcanPath": trashcan_path
         }
     
         try:
-            # Send POST request
+            #send POST request
             response = requests.post(url, json=payload)
-            response.raise_for_status()  # Raise HTTPError for bad responses (4xx and 5xx)
+            response.raise_for_status()  #HTTPError for bad responses (4xx and 5xx)
             
-            # Parse the response JSON
+            #parse response JSON
             data = response.json()
             if "message" in data:
                 print("Success:", data["message"])
@@ -77,11 +77,11 @@ If something went wrong (like the file doesn’t exist or there’s an issue wit
             print("An error occurred:", e)
     
     if __name__ == "__main__":
-        # Specify the path to your trashcan file
-        trashcan_file_path = "/path/to/your/trashcan.txt"  # Update with the actual file path
+        trashcan_file_path = "trash_test.txt"  #update with the actual file path
     
-        # Call the function
+        #call the function
         send_trashcan_request(trashcan_file_path)
+
         
 # Example JSON Responses
 Here’s what the responses from the server will look like:
