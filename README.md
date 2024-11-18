@@ -60,5 +60,7 @@ If the file format is incorrect (e.g., the first line isn’t '1'):
     "error": "The first line of the file is not '1' or the file is empty."
 
 # Notes
-File Path: Ensure that the trashcanPath points to a valid file on your system and that the first line of the file is 1 before sending the request.
-Server Address: If the server address isn’t http://localhost:8080, adjust accordingly in the request URL.
+File Path: trashcanPath points to a valid file on your system and that the first line of the file is 1 before sending the request.
+Server Address: If the server addressisn't working adjust accordingly in the request URL.
+
+![Sequence diagram](https://github.com/user-attachments/assets/b618820a-feb6-4b2d-9306-9c4d1b1bb89a)
