@@ -44,6 +44,41 @@ To programmatically request data from the Trashcan Emptying Microservice, you ne
         #call the function
         send_trashcan_request(trashcan_file_path)
 
+# Example Response Handling
+
+This Python code sends a POST request to the Trashcan Emptying Microservice with the trashcan file path, then handles the response by printing a success message if the operation is successful, or an error message if there’s an issue, such as the file not existing or the first line not being 1.
+
+    import requests
+    import json
+    
+    #the URL of the microservice (adjust if necessary)
+    url = "http://localhost:8080/empty-trashcan"
+    
+    #the data to send in the POST request
+    data = {
+        "trashcanPath": "/path/to/your/trashcan.txt"  # Replace with the actual file path
+    }
+    
+    #send the POST request
+    response = requests.post(url, json=data)
+    
+    #handle the response
+    if response.status_code == 200:  # Check if the response is successful
+        #parse the JSON response
+        response_data = response.json()
+    
+        #check if the response contains a message (success)
+        if "message" in response_data:
+            print(f"Success: {response_data['message']}")
+        #if there's an error message
+        elif "error" in response_data:
+            print(f"Error: {response_data['error']}")
+    else:
+        #if the server responds with a non-200 status code
+        print(f"Request failed with status code {response.status_code}")
+        print("Response content:", response.text)
+
+
 # Example JSON Responses
 Here’s what the responses from the server will look like:
 
